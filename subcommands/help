@@ -5,6 +5,7 @@ USAGE: kevin [SUBCOMMAND]
 SUBCOMMANDS:
   help        - Prints this message 
   pick-ticket - Creates a PR based on a jira ticket
+  pick-comment -Changes your local code based on a github comment
 {%- endset %}
 {{print(help)}}
 

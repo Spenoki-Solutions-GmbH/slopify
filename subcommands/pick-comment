@@ -1,0 +1,100 @@
+#!/usr/bin/env siesta
+# vim: set ft=jinja
+
+#
+# TODO: little rough, needs some cleanup
+#
+
+
+{% set comment_api_url|run()|trim("\n") %}
+repo="$(gh repo view --json nameWithOwner | jq '.nameWithOwner' --raw-output)"
+pr_id="$(gh pr view --json number | jq '.number' --raw-output)"
+jq_query='.[] | .url + ";" + (.id|tostring) + ";" + .user.login + ";" + .created_at + ";" + .body'
+
+{
+
+# Comments bound to this pr
+gh api \
+  -H 'Accept: application/vnd.github+json' \
+  -H 'X-GitHub-Api-Version: 2022-11-28' \
+  /repos/$repo/pulls/$pr_id/comments \
+  | jq "$jq_query"
+
+
+
+# More github comments
+url="/repos/$repo/issues/comments?sort=created\&direction=desc"
+gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  $url | jq "$jq_query"
+
+} | column -t -s';' | cut -d'"' -f2 | fzf --delimiter=' ' --with-nth='2..' | cut -d';' -f1 | awk '{print $1}'
+{% endset %}
+
+{% set comment|run()|json %}
+gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  {{comment_api_url|escape}}
+{% endset %}
+
+{{diff}}
+
+{% set file_contents|run|catfiles %}
+gh pr view --json files | jq '.files | .[] | .path' --raw-output
+{% endset %}
+
+{{file_contents}}
+
+
+{% set changes|prompt("gemini/gemini-2.5-pro-preview-06-05") -%}
+
+# Instructions
+{{ comment.body }}
+
+{% if comment.diff_hunk -%}
+  ## Diff hunk
+  ```
+  {{ comment.diff_hunk }}
+  ```
+{%- endif %}
+
+{% if comment.path -%}
+  ## Path
+  ```
+  {{ comment.path }}
+  ```
+{% endif -%}
+
+### PR Diff
+```
+{% filter run %}
+gh pr diff
+{% endfilter %}
+```
+
+### PR Files
+```
+{{file_contents}}
+```
+
+# Output
+Print whole changed files.
+
+{%- endset %}
+
+
+
+{% set changes_json|prompt("gemini/gemini-2.5-flash-preview-05-20")|code|json %}
+# Task
+Convert the given input to a JSON dict where they keys are a filename and the values the files content.
+
+```
+{{changes}}
+```
+{% endset %}
+
+{% for filename, content in changes_json.items() %}
+  {{ content|write(filename) }}
+{% endfor %}
