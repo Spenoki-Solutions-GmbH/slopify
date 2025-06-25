@@ -25,6 +25,7 @@ export PATH="/path/to/kevin/bin:$PATH"
 ### 3. Dependencies
 * Setup: [jira-cli](https://github.com/ankitpokhrel/jira-cli)
 * Setup: [GitHub CLI](https://cli.github.com/)
+* Install siesta: `pip3 install git+https://github.com/ihucos/siesta.git`
 * Run: `brew install fzf jq`
 
 ## Example usage
