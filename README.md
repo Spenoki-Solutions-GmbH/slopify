@@ -22,6 +22,13 @@ git clone git@github.com:Spenoki-Solutions-GmbH/kevin.git
 ```
 export PATH="/path/to/kevin/bin:$PATH"
 ```
-### 3. Install dependencies
-Setup: [jira-cli](https://github.com/ankitpokhrel/jira-cli)
-Setup: [GitHub CLI](https://cli.github.com/)
+### 3. Dependencies
+* Setup: [jira-cli](https://github.com/ankitpokhrel/jira-cli)
+* Setup: [GitHub CLI](https://cli.github.com/)
+* Run: `brew install fzf jq`
+
+## Example usage
+```
+kevin pick-ticket
+```
+
