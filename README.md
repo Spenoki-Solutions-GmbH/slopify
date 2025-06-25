@@ -25,11 +25,11 @@ export PATH="/path/to/kevin/bin:$PATH"
 ### 3. Dependencies
 * Setup: [jira-cli](https://github.com/ankitpokhrel/jira-cli)
 * Setup: [GitHub CLI](https://cli.github.com/)
+* Setup: [Ollama](https://ollama.com/download)
 * Install siesta: `pip3 install git+https://github.com/ihucos/siesta.git`
 * Run: `brew install fzf jq`
 
 ### 3. Configure
-# Configure
 ```
 [jira]
 org=jira_org_name
@@ -44,4 +44,12 @@ Just hit me on chat and I send you the file.
 ```
 kevin pick-ticket
 ```
+
+## Development Guidelines
+* Apply the "Rule of three". Copy and paste three times before refactoring.
+* Use the smallest model fit for the job.
+* Use local models when practicable.
+* Balance development speed, completion quality and model size.
+* Use clear common sense prompts that solve one task at a time.
+* Proper prompt formating does matter.
 
