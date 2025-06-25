@@ -28,6 +28,18 @@ export PATH="/path/to/kevin/bin:$PATH"
 * Install siesta: `pip3 install git+https://github.com/ihucos/siesta.git`
 * Run: `brew install fzf jq`
 
+### 3. Configure
+# Configure
+```
+[jira]
+org=jira_org_name
+
+[jira_labels]
+label1=owner/repo1
+label2=owner/repo2
+```
+Just hit me on chat and I send you the file.
+
 ## Example usage
 ```
 kevin pick-ticket
