@@ -5,7 +5,7 @@
 #
 # Load config
 #
-{% set conf = loadini("~/.ai.ini") %}
+{% set conf = loadini("~/.kevin.ini") %}
 {{print("Config:", conf) }}
 
 
@@ -18,7 +18,7 @@ jira issues list \
   --columns KEY,TYPE,ASSIGNEE,SUMMARY \
   --no-headers |
 fzf  \
-  --preview '/Users/ihucos/bin/jira issue show $(echo {1} | cut -d" " -f1)' \
+  --preview 'jira issue show $(echo {1} | cut -d" " -f1)' \
   --preview-window=bottom:50% |
 awk '{print $1}'
 {% endset %}
