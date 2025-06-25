@@ -1,0 +1,10 @@
+#!/usr/bin/env siesta
+{% set help -%}
+USAGE: kevin [SUBCOMMAND]
+
+SUBCOMMANDS:
+  help        - Prints this message 
+  pick-ticket - Creates a PR based on a jira ticket
+{%- endset %}
+{{print(help)}}
+
