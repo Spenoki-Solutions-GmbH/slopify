@@ -33,6 +33,7 @@ export PATH="/path/to/kevin/bin:$PATH"
 
 ### 4. Configure
 ```
+# ~/.kevin.ini
 [jira]
 org=jira_org_name
 
