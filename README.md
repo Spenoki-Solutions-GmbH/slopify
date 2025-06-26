@@ -2,6 +2,8 @@
 
 # Kevin
 
+Your AI non-agent.
+
 A wrapper around [siesta scripts](https://github.com/ihucos/siesta) to automate workflows.
 
 ## Implemented subcommands
@@ -52,3 +54,4 @@ kevin pick-ticket
 * Balance development speed, completion quality and model size.
 * Use clear common sense prompts that solve one task at a time.
 * Proper prompt formating does matter.
+* This is a general but opiniated solution.
