@@ -32,7 +32,7 @@ export PATH="/path/to/kevin/bin:$PATH"
 * Run: `brew install fzf jq`
 
 ### 4. Configure
-```
+```ini
 # ~/.kevin.ini
 [jira]
 org=jira_org_name
