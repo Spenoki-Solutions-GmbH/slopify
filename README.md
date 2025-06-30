@@ -1,6 +1,6 @@
 
 
-# Kevin
+# Chaplin
 
 Your AI non-agent.
 
@@ -17,12 +17,12 @@ A wrapper around [siesta scripts](https://github.com/ihucos/siesta) to automate 
 ## Install
 ### 1. Clone this repo
 ```
-git clone git@github.com:Spenoki-Solutions-GmbH/kevin.git
+git clone git@github.com:Spenoki-Solutions-GmbH/chaplin.git
 ```
 
 ### 2. Add to `$PATH`
 ```
-export PATH="/path/to/kevin/bin:$PATH"
+export PATH="/path/to/chaplin/bin:$PATH"
 ```
 ### 3. Dependencies
 * Setup: [jira-cli](https://github.com/ankitpokhrel/jira-cli)
@@ -33,7 +33,7 @@ export PATH="/path/to/kevin/bin:$PATH"
 
 ### 4. Configure
 ```ini
-# ~/.kevin.ini
+# ~/.chaplin.ini
 [jira]
 org=jira_org_name
 
@@ -45,7 +45,7 @@ Just hit me on chat and I send you the file.
 
 ## Example usage
 ```
-kevin pick-ticket
+chaplin pick-ticket
 ```
 
 ## Development Guidelines

@@ -1,6 +1,6 @@
 #!/usr/bin/env siesta
 {% set help -%}
-USAGE: kevin [SUBCOMMAND]
+USAGE: chaplin [SUBCOMMAND]
 
 SUBCOMMANDS:
   help        - Prints this message 

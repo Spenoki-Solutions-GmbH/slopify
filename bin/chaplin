@@ -6,10 +6,11 @@ import sys
 project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 if len(sys.argv) == 1:
-  print("Usage: kevin <subcommand> (try `kevin help`)")
+  print("Usage: chaplin <subcommand> (try `chaplin help`)")
   sys.exit(1)
 
-subcommand_path = os.path.join(project_dir, "subcommands", sys.argv[1])
+subcommand = sys.argv[1]
+subcommand_path = os.path.join(project_dir, "subcommands", subcommand)
 
 if not os.path.exists(subcommand_path):
   print(f"Subcommand {subcommand} does not exist")
