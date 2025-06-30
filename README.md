@@ -1,7 +1,5 @@
 # Chaplin
 
-![ChatGPT Image Jun 30, 2025, 04_0 (1)](https://github.com/user-attachments/assets/3351a98f-c5fc-430d-802f-ba9bbc2bb4fd)
-
 A wrapper around [siesta scripts](https://github.com/ihucos/siesta) to automate workflows.
 
 ## Implemented subcommands
