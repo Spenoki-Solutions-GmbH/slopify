@@ -1,5 +1,7 @@
 # Chaplin
 
+Your AI non-agent.
+
 A wrapper around [siesta scripts](https://github.com/ihucos/siesta) to automate workflows.
 
 ## Implemented subcommands
