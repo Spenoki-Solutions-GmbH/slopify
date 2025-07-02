@@ -49,6 +49,33 @@ Just hit me on chat and I send you the file.
 slopify pick-ticket
 ```
 
+## A case for more non-agentic workflows
+
+### Security
+* No literally random arbitrary shell command execution (A traditional no-go in software development)
+* Code can be audited
+
+
+### Simplicity
+* No sandboxing needed
+* It's just a few hundert lines of script.
+  
+### Environmental impact / Costs
+* Forseable costs. A fixed number of API calls to the big models.
+* Certain LLM completions can be handled locally.
+* Hand-pick the most economical model for the job.
+
+### Control
+* Error cases can be handled sanely at all.
+* Precisely curate the context to the LLMs -> Better performance.
+* Plan beforehand the best way to accomplish a task.
+* No Vendor lock-in - plug and play different models depending on your needs.
+
+### UX
+* Discoverability: users can see what your tool can do.
+* No need for users to oversee and rubber-stamp AIs intermediate steps.
+
+
 ## Development Guidelines
 * Apply the "Rule of three". Copy and paste three times before refactoring.
 * Use the smallest model fit for the job.
