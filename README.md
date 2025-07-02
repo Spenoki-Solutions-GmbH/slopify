@@ -73,7 +73,7 @@ slopify pick-ticket
 
 ### UX
 * Discoverability: users can see what your tool can do.
-* No need for users to oversee and rubber-stamp AI actions.
+* No need for users to oversee and rubber-stamp AIs intermediate steps.
 
 
 ## Development Guidelines
