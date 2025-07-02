@@ -72,8 +72,8 @@ slopify pick-ticket
 * No Vendor lock-in - plug and play different models depending on your needs.
 
 ### UX
-Discoverability: users can see what your tool can do.
-No need for users to oversee and rubber-stamp AI actions.
+* Discoverability: users can see what your tool can do.
+* No need for users to oversee and rubber-stamp AI actions.
 
 
 ## Development Guidelines
