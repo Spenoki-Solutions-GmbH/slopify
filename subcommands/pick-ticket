@@ -5,7 +5,7 @@
 #
 # Load config
 #
-{% set conf = loadini("~/.chaplin.ini") %}
+{% set conf = loadini("~/.slopify.ini") %}
 {{print("Config:", conf) }}
 
 

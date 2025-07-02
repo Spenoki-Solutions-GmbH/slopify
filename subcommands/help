@@ -1,6 +1,6 @@
 #!/usr/bin/env siesta
 {% set help -%}
-USAGE: chaplin [SUBCOMMAND]
+USAGE: slopify [SUBCOMMAND]
 
 SUBCOMMANDS:
   help        - Prints this message 

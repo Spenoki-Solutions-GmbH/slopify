@@ -6,7 +6,7 @@ import sys
 project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 if len(sys.argv) == 1:
-  print("Usage: chaplin <subcommand> (try `chaplin help`)")
+  print("Usage: slopify <subcommand> (try `slopify help`)")
   sys.exit(1)
 
 subcommand = sys.argv[1]

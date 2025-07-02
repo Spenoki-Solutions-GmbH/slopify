@@ -1,4 +1,4 @@
-# Chaplin
+# Slopify
 
 Your AI non-agent.
 
@@ -18,12 +18,12 @@ Be carefull to not push company data in here.
 ## Install
 ### 1. Clone this repo
 ```
-git clone git@github.com:Spenoki-Solutions-GmbH/chaplin.git
+git clone git@github.com:Spenoki-Solutions-GmbH/slopify.git
 ```
 
 ### 2. Add to `$PATH`
 ```
-export PATH="/path/to/chaplin/bin:$PATH"
+export PATH="/path/to/slopify/bin:$PATH"
 ```
 ### 3. Dependencies
 * Setup: [jira-cli](https://github.com/ankitpokhrel/jira-cli)
@@ -34,7 +34,7 @@ export PATH="/path/to/chaplin/bin:$PATH"
 
 ### 4. Configure
 ```ini
-# ~/.chaplin.ini
+# ~/.slopify.ini
 [jira]
 org=jira_org_name
 
@@ -46,7 +46,7 @@ Just hit me on chat and I send you the file.
 
 ## Example usage
 ```
-chaplin pick-ticket
+slopify pick-ticket
 ```
 
 ## Development Guidelines
