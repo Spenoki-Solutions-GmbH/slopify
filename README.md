@@ -4,6 +4,9 @@ Your AI non-agent.
 
 A wrapper around [siesta scripts](https://github.com/ihucos/siesta) to automate workflows.
 
+## Open Source
+Be carefull to not push company data in here.
+
 ## Implemented subcommands
 
 | | |
