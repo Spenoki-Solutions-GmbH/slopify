@@ -133,7 +133,7 @@ Output the whole files you changed.
 # Convert implementation completion to JSON
 #
 {{print("Prompting to convert implementation into JSON...")}}
-{% set changes_json|dedent|prompt("gemini/gemini-2.5-flash")|code|json %}
+{% set changes_json|dedent|prompt("gemini/gemini-2.5-flash", temperature=0)|code|json %}
   Map the following to a JSON dict: filename -> content. Where filename and content are strings.
   ```
   {{changes}}
