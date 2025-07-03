@@ -105,7 +105,8 @@ jira issues show {{ticket_id|escape}} --plain --comments 0
   {% endfilter %}
 
   # Task
-  List all files that could be relevant to the requested code changes in a code block.
+  List all files that could be relevant to the requested code changes.
+  Output a code block where every line is a file.
 {% endset %}
 {{print("Files for context:", files.splitlines()|join(", "))}}
 
