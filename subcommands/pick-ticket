@@ -45,7 +45,8 @@ jira issues show {{ticket_id|escape}} --plain --comments 0
 #
 {% set ns = namespace(repo=None) %}
 {% for label in ticket.fields.labels %}
-  {% set ns.repo = conf.jira_labels[label] %}
+  {% set ns.repo = conf.jira_labels.get(label) %}
+  {% if ns.repo %}{% break %}{% endif %}
 {% endfor %}
 {% if not ns.repo %}
   {{ error("Could not find a repo for this ticket, labels: {}".format(ticket.fields.labels)) }}
@@ -57,8 +58,11 @@ jira issues show {{ticket_id|escape}} --plain --comments 0
 #
 # Make a fresh project clone
 #
-{{print("Cloning repo...")}}
-{{ cd("mktemp -d"|run) }}
+{% set repo_path|run %}
+  mktemp -d /tmp/slopify-{{ticket.fields.summary|slugify|escape}}-XXXXXXXX
+{% endset %}
+{{ cd(repo_path) }}
+{{print("Cloning repo to {} ...".format(repo_path))}}
 {% filter run() %}
   set -x
   git clone --depth=1 git@github.com:{{repo|escape}} .
@@ -85,7 +89,7 @@ jira issues show {{ticket_id|escape}} --plain --comments 0
 # Prompt for list of relevant files
 #
 {{print("Prompting for relevant files list...")}}
-{% set files|dedent|prompt("gemini/gemini-2.5-flash-preview-05-20")|code %}
+{% set files|dedent|prompt("gemini/gemini-2.5-flash-lite-preview-06-17")|code %}
 
   # Requested code changes
   ## {{ ticket.fields.summary }}
@@ -110,7 +114,7 @@ jira issues show {{ticket_id|escape}} --plain --comments 0
 # Prompt for implementation
 #
 {{print("Prompting for implementation...")}}
-{% set changes|prompt("gemini/gemini-2.5-pro-preview-06-05") %}
+{% set changes|prompt("gemini/gemini-2.5-pro") %}
 # Implement the following changes
 ## {{ ticket.fields.summary }}
 {{ description }}
@@ -128,7 +132,7 @@ Output the whole files you changed.
 # Convert implementation completion to JSON
 #
 {{print("Prompting to convert implementation into JSON...")}}
-{% set changes_json|dedent|prompt("gemini/gemini-2.5-flash-preview-05-20")|code|json %}
+{% set changes_json|dedent|prompt("gemini/gemini-2.5-flash-lite-preview-06-17")|code|json %}
   Map the following to a JSON dict: filename -> contents
   ```
   {{changes}}
@@ -149,6 +153,7 @@ Output the whole files you changed.
 {{ print("Committing changes...\n") }}
 {% filter run %}
   set -x
+  git --no-pager diff 1>&2
   git add .
 {% endfilter %}
 
