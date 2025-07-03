@@ -89,7 +89,7 @@ jira issues show {{ticket_id|escape}} --plain --comments 0
 # Prompt for list of relevant files
 #
 {{print("Prompting for relevant files list...")}}
-{% set files|dedent|prompt("gemini/gemini-2.5-flash-lite-preview-06-17")|code %}
+{% set files|dedent|prompt("gemini/gemini-2.5-flash")|code %}
 
   # Requested code changes
   ## {{ ticket.fields.summary }}
@@ -133,8 +133,8 @@ Output the whole files you changed.
 # Convert implementation completion to JSON
 #
 {{print("Prompting to convert implementation into JSON...")}}
-{% set changes_json|dedent|prompt("gemini/gemini-2.5-flash-lite-preview-06-17")|code|json %}
-  Map the following to a JSON dict: filename -> contents
+{% set changes_json|dedent|prompt("gemini/gemini-2.5-flash")|code|json %}
+  Map the following to a JSON dict: filename -> content. Where filename and content are strings.
   ```
   {{changes}}
   ```
