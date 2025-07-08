@@ -44,6 +44,13 @@ label2=owner/repo2
 ```
 Just hit me on chat and I send you the file.
 
+### 5. Gemini API key
+Go to https://aistudio.google.com/app/apikey to claim your gemini api key.
+Set it to the environment:
+```
+export GEMINI_API_KEY=...
+```
+
 ## Example usage
 ```
 slopify pick-ticket
