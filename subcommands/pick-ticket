@@ -6,8 +6,13 @@
 # Load config
 #
 {% set conf = loadini("~/.slopify.ini") %}
-{{print("Config:", conf) }}
+{{ print("Config:", conf) }}
 
+#
+# Load the ticket from the args, if set
+#
+{% set ticket_id=input.split()[1] %}
+{% if not ticket_id %}
 
 #
 # Let user pick a ticket
@@ -22,6 +27,7 @@ fzf  \
   --preview-window=bottom:50% |
 awk '{print $1}'
 {% endset %}
+{% endif %}
 {{ print("Ticket:", ticket_id) }}
 
 #
@@ -197,7 +203,7 @@ git commit -m {{ commit.splitlines()[0]|escape }}
 
   # These are the PR changes
   {% filter run(label=True) %}
-    git diff $(git merge-base --fork-point test)
+    git diff $(git merge-base --fork-point dev)
   {% endfilter %}
   /no_think
 {% endset %}

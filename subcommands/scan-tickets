@@ -1,0 +1,22 @@
+#!/usr/bin/env siesta
+# vim: set ft=jinja
+
+# Scan Jira ticket_ids with the `slopify` label and call the `pick-ticket` subcommand for them
+
+{% set tickets|run()|trim("\n") %}
+jira issues list \
+    --plain \
+    --columns KEY \
+    --no-headers \
+    --label slopify --label frontend
+{% endset %}
+
+{{ print("Found tickets:\n{}".format(tickets)) }}
+
+{% for ticket_id in tickets.split("\n") %}
+{{ print("Processing ticket {}...".format(ticket_id)) }}
+
+{% filter run %}
+slopify pick-ticket {{ ticket_id }}
+{% endfilter %}
+{% endfor %}
