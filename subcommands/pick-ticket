@@ -221,7 +221,8 @@ git commit -m {{ commit.splitlines()[0]|escape }}
   ## The code changes
   ```
   {% filter run %}
-  git diff $(git merge-base --fork-point test)
+  default_branch="$(git symbolic-ref --short refs/remotes/origin/HEAD | cut -d'/' -f2-)"
+  git diff $(git merge-base --fork-point "$default_branch")
   {% endfilter %}
   ```
 
