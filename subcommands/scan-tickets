@@ -8,7 +8,7 @@ jira issues list \
     --plain \
     --columns KEY \
     --no-headers \
-    --jql "project IS NOT EMPTY AND labels = slopify"
+    --jql 'project IS NOT EMPTY AND labels = "slopify" AND statusCategory = "To Do" AND development[pullrequests].open = 0'
 {% endset %}
 
 {{ print("Found tickets:\n{}".format(tickets)) }}
