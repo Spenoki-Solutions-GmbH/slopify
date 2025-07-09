@@ -8,7 +8,7 @@ jira issues list \
     --plain \
     --columns KEY \
     --no-headers \
-    --label slopify --label frontend
+    --jql "project IS NOT EMPTY AND labels = slopify"
 {% endset %}
 
 {{ print("Found tickets:\n{}".format(tickets)) }}

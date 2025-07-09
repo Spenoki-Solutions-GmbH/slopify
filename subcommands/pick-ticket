@@ -199,7 +199,7 @@ git commit -m {{ commit.splitlines()[0]|escape }}
 
   # These are the PR changes
   {% filter run(label=True) %}
-    git diff $(git merge-base --fork-point dev)
+    git diff $(git merge-base --fork-point test)
   {% endfilter %}
   /no_think
 {% endset %}
