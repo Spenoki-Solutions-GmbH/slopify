@@ -9,14 +9,10 @@
 {{ print("Config:", conf) }}
 
 #
-# Load the ticket from the args, if set
+# Let user pick a ticket if none passed as argument
 #
 {% set ticket_id=input.split()[1] %}
 {% if not ticket_id %}
-
-#
-# Let user pick a ticket
-#
 {% set ticket_id|run()|trim("\n") %}
 jira issues list \
   --plain \
