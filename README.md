@@ -50,6 +50,12 @@ Set it to the environment:
 ```
 export GEMINI_API_KEY=...
 ```
+### 6. Download local models
+```
+ollama pull qwen3:4b
+ollama pull qwen3:14b
+```
+
 
 ## Example usage
 ```
