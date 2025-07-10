@@ -80,7 +80,7 @@ gh pr diff
 ```
 
 # Output
-Print whole changed files.
+Print whole changed files. Output each changed file as a separate code block with the filename on top.
 
 {%- endset %}
 
@@ -88,8 +88,7 @@ Print whole changed files.
 
 {% set changes_json|prompt("gemini/gemini-2.5-flash-preview-05-20")|code|json %}
 # Task
-Convert the given input to a JSON dict where they keys are a filename and the values the files content.
-
+Convert the given input to a JSON dictionary where the keys are the names of changed files and the values are content of the changed files.
 ```
 {{changes}}
 ```

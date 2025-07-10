@@ -6,12 +6,13 @@
 # Load config
 #
 {% set conf = loadini("~/.slopify.ini") %}
-{{print("Config:", conf) }}
-
+{{ print("Config:", conf) }}
 
 #
-# Let user pick a ticket
+# Let user pick a ticket if none passed as argument
 #
+{% set ticket_id=input.split()[1] %}
+{% if not ticket_id %}
 {% set ticket_id|run()|trim("\n") %}
 jira issues list \
   --plain \
@@ -22,6 +23,7 @@ fzf  \
   --preview-window=bottom:50% |
 awk '{print $1}'
 {% endset %}
+{% endif %}
 {{ print("Ticket:", ticket_id) }}
 
 #
