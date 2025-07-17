@@ -23,13 +23,27 @@ Be carefull to not push company data in here.
 docker build -t slopify .
 ```
 
-### 2. run slopify init
-Jira needs attention:
+### 2. Configure
+Add this to your config
+```
+[models]
+small=gemini/gemini-2.5-flash
+
+[envs]
+JIRA_API_TOKEN=...
+GEMINI_API_KEY=...
+GH_TOKEN=...
+
+```
+
+### 3. Run slopify init
+Jira needs attention
 ```
 docker run -ti -v ~/.slopify.ini:/root/.slopify.ini -v slopify-jira-config:/root/.config/.jira -v ~/.ssh:/root/.ssh slopify slopify init
 ```
 
-### 3. run slopify
+
+### 4. Run slopify
 ```
 docker run -ti -v ~/.slopify.ini:/root/.slopify.ini -v slopify-jira-config:/root/.config/.jira -v ~/.ssh:/root/.ssh slopify slopify pick-ticket
 ```
