@@ -247,7 +247,7 @@ git commit -m {{ commit.splitlines()[0]|escape }}
     --title WIP\ {{ title|escape }} \
     --body  {{ description|escape }} \
     --head {{ branch|escape }} \
-    --web
+    --draft
 {% endfilter %}
 
 {#
