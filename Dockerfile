@@ -28,9 +28,3 @@ RUN cd /tmp && \
 COPY . /app
 
 SHELL [ "bash" ]
-
-
-
-
-
-
