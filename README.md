@@ -62,6 +62,22 @@ ollama pull qwen3:14b
 slopify pick-ticket
 ```
 
+## Notes on writing AI-Ready Jira tickets
+slopify's `pick-ticket` subcommand is designed to handle small, technical subtickets that where purposoly created for it. The anticipated workflow is the following:
+1. Spec out a bigger ticket into small subtickets
+2. Run the small subtickets on slopify. Tipically I still need one more iteration to adapt the ticket description once. But with some training this should not be necessary.
+
+Here are some tips:
+  - Micromanage as much as possible
+  - Slopify pick-ticket "knows" the basics of your source code, but it does know much about the product and language only applicable to a higher level product view.
+  - Ideally the subtickets are one sentence (Just the title), for example "Expose model X to the API", "Make the field X on model Y filterable in the admin" and similiar
+  - Look into the source and try to understand what the LLM "knows" and what it does not "know"
+  - Treat unexpected completions as user errors and try to learn from them.
+
+ That being said, it is really possible to for example just throw a huge ticket into it and maybe the results are usable, but in order to get predictable results follow the mentioned instructions.
+ It might also work well to write a detailed specification on a big ticket. But I would not recommend that because it leads to a huge PRs, which is also not optimal for human written code.
+
+
 ## A case for more non-agentic workflows
 
 ### Security
