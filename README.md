@@ -39,13 +39,13 @@ GH_TOKEN=...
 ### 3. Run slopify init
 Jira needs attention
 ```
-docker run -ti -v ~/.slopify.ini:/root/.slopify.ini -v slopify-jira-config:/root/.config/.jira -v ~/.ssh:/root/.ssh slopify slopify init
+docker run -ti -v ~/.slopify.ini:/root/.slopify.ini -v slopify-jira-config:/root/.config/.jira slopify slopify init
 ```
 
 
 ### 4. Run slopify
 ```
-docker run -ti -v ~/.slopify.ini:/root/.slopify.ini -v slopify-jira-config:/root/.config/.jira -v ~/.ssh:/root/.ssh slopify slopify pick-ticket
+docker run -ti -v ~/.slopify.ini:/root/.slopify.ini -v slopify-jira-config:/root/.config/.jira -v ~/.ssh:/root/.ssh -v ~/.git:/root/.git slopify slopify pick-ticket AA-350
 ```
 
 ## Install
