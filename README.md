@@ -75,7 +75,7 @@ Here are some tips:
   - Treat unexpected completions as user errors and try to learn from them.
 
  That being said, it is really possible to for example just throw a huge ticket into it and maybe the results are usable, but in order to get predictable results follow the mentioned instructions.
- It might also work well to write a detailed specification on a big ticket. But I would not recommend that because it leads to a huge PRs, which is generally not optimal.
+ It might also work well to write a detailed specification on a big ticket. But I would not recommend that because it leads to huge PRs, which is generally not optimal.
 
 
 ## A case for more non-agentic workflows
